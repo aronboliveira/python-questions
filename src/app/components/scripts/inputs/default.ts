@@ -1,6 +1,6 @@
 import { rc } from "../../../vars";
 import { InpProps } from "../../../lib/declarations/interfaceComponents";
-import { nDl, nFm, nInp, nLb } from "../../../lib/declarations/types";
+import { nDl, nInp, nLb } from "../../../lib/declarations/types";
 export function updateAttrs(el: nInp | HTMLSelectElement, ro: boolean, dsb: boolean, req: boolean): void {
   if (!el) return;
   ro ? el.setAttribute("readonly", "true") : el.removeAttribute("readonly");

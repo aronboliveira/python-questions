@@ -1,16 +1,5 @@
 import "./styles/globals.scss";
 import Script from "next/script";
-import localFont from "next/dist/compiled/@next/font/dist/local";
-const geistSans = localFont({
-  src: "./assets/fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./assets/fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +22,7 @@ export default function RootLayout({
           id='bsLink'
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
         <noscript>You need Javascript to run this application.</noscript>
         {children}
         <Script

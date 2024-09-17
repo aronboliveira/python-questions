@@ -31,11 +31,18 @@ export interface CheckProps extends InpProps {
 }
 export interface RadioGroupProps extends Omit<Partial<InpProps>, "type"> {
   group: string;
-  radios: RadioProps[];
+  desc: string | React.ReactNode;
+  idx: number;
+  radios: (RadioProps | QuestionRadioProps)[];
+  shownGroup?: string;
 }
 export interface RadioProps extends Omit<InpProps, "type"> {
   group: string;
   value: string;
+}
+export interface QuestionRadioProps extends RadioProps {
+  r?: string;
+  id?: string;
 }
 export interface OptProps {
   value: string;
@@ -49,4 +56,13 @@ export interface SelectProps extends InpProps {
   defV: string;
   type: "select-one" | "select-multiple";
   opts: OptProps[] | OptGroupProps[];
+}
+export interface DescProps {
+  idf: string;
+  children: React.ReactNode;
+}
+export interface AlgoProps {
+  p: string;
+  c: string;
+  s: string;
 }

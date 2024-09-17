@@ -1,7 +1,7 @@
 "use client";
 import { FormProps } from "@/app/lib/declarations/interfaceComponents";
 import RadioBlock from "../inputs/RadioBlock";
-import RadioGroup from "./RadioGroup";
+import RadioGroup from "../../forms/RadioGroup";
 export default function Questions({ id, inps, groups }: FormProps): JSX.Element {
   return (
     <form
@@ -22,7 +22,7 @@ export default function Questions({ id, inps, groups }: FormProps): JSX.Element 
         else return <input type='text' key={`inp__${id}__${idx}`} />;
       })}
       {groups?.map((g, i) => (
-        <RadioGroup group={g.group} radios={g.radios} />
+        <RadioGroup group={g.group} radios={g.radios} idx={i} key={`inp__${id}__${i}`} desc={g.desc} />
       ))}
     </form>
   );
