@@ -20,6 +20,11 @@ export default function RootLayout({
   return (
     <html lang='pt-BR' className={poppins.className}>
       <head>
+        <meta name='author' content='Aron Barbosa de Oliveira' />
+        <link rel='author' href='https://github.com/aronboliveira/' crossOrigin='anonymous' />
+        <meta name='publisher' content='Aron Barbosa de Oliveira' />
+        <meta property='og:site_name' content="Jane Doe's Blog" />
+        <meta property='article:author' content='https://github.com/aronboliveira/' />
         <meta property='og:site_name' content='Questionário Python' />
         <meta property='og:description' content={metadata.description ?? ""} />
         <meta property='og:title' content='website' />
