@@ -1,15 +1,12 @@
 /** @type {import('next').NextConfig} */
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlReplaceWebpackPlugin = require("html-replace-webpack-plugin");
-const { SubresourceIntegrityPlugin } = require("webpack-subresource-integrity");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const webpack = require("webpack");
-const packageJson = require("./package.json");
 const nextConfig = {
-  generateBuildId: async () => process.env.GIT_HASH,
   output: "export",
   reactStrictMode: true,
+  trailingSlash: true,
+  distDir: "dist",
+  env: {
+    GIT_HASH: process.env.GIT_HASH,
+  },
   // webpack: config => {
   //   config.output = {
   //     ...config.output,
@@ -85,6 +82,5 @@ const nextConfig = {
   //   );
   //   return config;
   // },
-  productionBrowserSourceMaps: true,
 };
 module.exports = nextConfig;
