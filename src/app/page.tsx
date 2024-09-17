@@ -5,6 +5,7 @@ import { gs, opts } from "./vars";
 export default function Home(): JSX.Element {
   return (
     <div id='home'>
+      <h1>Questionário Backend Python</h1>
       <Questions
         id='questions'
         groups={gs.map((m, i) => {

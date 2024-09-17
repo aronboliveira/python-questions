@@ -4,7 +4,8 @@ import AlgoAnswer from "./components/forms/answers/AlgoAnswer";
 import { isValidElement } from "react";
 import FilesAnswer from "./components/forms/answers/FilesAnswer";
 import DjangoAnswer from "./components/forms/answers/DjangoAnswer";
-import SearchAnswer from "./components/forms/answers/SearchAnwser";
+import SearchAnswer from "./components/forms/answers/SearchAnswer";
+import SelectAnswer from "./components/forms/answers/SelectAnswer";
 export const rc: { [k: string]: { [k: string]: string[] } } = {};
 export const labEquivalents: Map<string, string> = new Map([["default", "none"]]);
 export const gs = [
@@ -12,7 +13,7 @@ export const gs = [
     name: "caseAlgo",
     d: (
       <QuestionDesc idf='caseAlgo'>
-        <div>
+        <article>
           <p className='addBlock'>
             Um analista de sistema está avaliando o desenvolvimento de um algoritmo pela sua equipe. Ao verificar a
             implementação, notou que duas funções, uma de pesquisa, e outra, de ordenação, eram pouco eficientes, pois
@@ -23,7 +24,7 @@ export const gs = [
             <li>Um algoritmo linear de pesquisa na lista resultante;</li>
           </ol>
           <div className='mainBlock'>Analisando o caso, o analista pode tirar qual das seguintes cinco conclusões?</div>
-        </div>
+        </article>
       </QuestionDesc>
     ),
     labs: [
@@ -70,7 +71,7 @@ export const gs = [
     name: "caseCsv",
     d: (
       <QuestionDesc idf='caseCsv'>
-        <div>
+        <article>
           <p>
             <span>
               Um desenvolvedor backend precisa desenvolver um script em <b>.py</b> para converter uma tabela em{" "}
@@ -80,7 +81,7 @@ export const gs = [
             <br />
           </p>
           <div className='mainBlock'>Para cumprir a tarefa, qual das respostas a seguir é mais adequada?</div>
-        </div>
+        </article>
       </QuestionDesc>
     ),
     labs: [
@@ -96,7 +97,7 @@ export const gs = [
     name: "caseReplace",
     d: (
       <QuestionDesc idf='caseReplace'>
-        <div>
+        <article>
           <p className='addBlock'>
             <span>
               Uma equipe de desenvolvimento busca criar uma aplicação que necessita armazenar em seu banco de dados
@@ -118,16 +119,10 @@ export const gs = [
             Considerando que o script no endpoint foi criado em Django, qual das opções realiza a correta sanitarização
             e modelagem dos dados?
           </div>
-        </div>
+        </article>
       </QuestionDesc>
     ),
-    labs: [
-      <DjangoAnswer f='1' key='da_0' />,
-      <DjangoAnswer f='2' key='da_1' />,
-      <DjangoAnswer f='3' key='da_2' />,
-      <DjangoAnswer f='4' key='da_3' />,
-      <DjangoAnswer f='5' key='da_4' />,
-    ],
+    labs: [...["0", "1", "2", "3", "4"].map((_, i) => <DjangoAnswer f={(i + 1).toString()} key={`da_${i}`} />)],
     r: 1,
   },
   {
@@ -203,6 +198,41 @@ export const gs = [
     ],
     r: 3,
   },
+  {
+    name: "caseSelection",
+    d: (
+      <article>
+        <div className='addBlock'>
+          <div style={{ paddingBottom: "0.5rem" }}>
+            Um ecólogo busca analisar, através do banco de dados de seu laboratório de genética sobre o gênero de
+            insetos <em>Djanguensis</em>, se a evolução da espécie no último milênio tendeu a uma seleção natural
+            disruptiva, direcional ou estabilizadora.
+          </div>
+          <div style={{ paddingBottom: "0.5rem" }}>
+            Os critérios para a pontuação são definidos cuidadosamente, mas não são aqui ilustrados. Cada um dos genes
+            recebe, no entanto, uma <b>pontuação de divergência</b> com base na sua diferença de bases nitrogenadas.
+          </div>
+          <div style={{ paddingBottom: "0.5rem" }}>
+            Gráficos, então, são montados para cada um dos genes, comparando a distância de cada espécie em relação ao
+            valor de <b>mediana</b>.
+          </div>
+          <div style={{ paddingBottom: "0.5rem" }}>
+            Por fim, os gráficos são sobrepostos e um gráfico médio de variação entre as espécies é criado.
+          </div>
+          <div style={{ paddingBottom: "0.5rem" }}>
+            Considere um banco <b>MySQL</b> e o uso de bibliotecas <b>Python</b> para realizar as tarefas desde a
+            extração dos dados do bancos até a definição dos índices estatísticos requisitados. Cada espécie possui um
+            campo <code>last_seen</code> para representar sua última observação em anos; se for maior que 100, a espécie
+            é considerada como extinta e plottada no grupo de extintos, enquanto as demais são plottadas como grupo de
+            espécies vivas (ambas são colocadas em comparação para definir a tendência de seleção).
+          </div>
+        </div>
+        <div className='mainBlock'>Qual dos códigos apresentados a seguir melhor atende as demandas do projeto?</div>
+      </article>
+    ),
+    labs: [...["0", "1", "2", "3", "4"].map((_, i) => <SelectAnswer f={(i + 1).toString()} key={`sa_${i}`} />)],
+    r: 4,
+  },
 ];
 export const opts: Map<string, QuestionRadioProps[]> = new Map(
   gs.map(g => [
@@ -232,9 +262,9 @@ export const opts: Map<string, QuestionRadioProps[]> = new Map(
       return {
         group: g.name,
         lab: labText as string,
-        value: `${g.name}__${labValue}`,
+        value: `${g.name}__${btoa(labValue)}`,
         idx,
-        r: r as string,
+        r: btoa(r as string),
       };
     }),
   ])

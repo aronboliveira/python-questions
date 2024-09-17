@@ -16,6 +16,7 @@ export default function SearchAnswer({ f, a, b, c, d, j }: SearchAnswerProps): J
         <span>No servidor Django acessado, usa-se a biblioteca </span>
         <b>{b} </b>
         <span>para calcular os dados relevantes do usuário, como, por exemplo:</span>
+        <br />
         <b>{c}</b>.
       </div>
       <div style={{ paddingBottom: "0.5rem" }}>

@@ -7,6 +7,7 @@ import { nInp } from "@/app/lib/declarations/types";
 export default function RadioBlock(props: QuestionRadioProps): JSX.Element {
   const r = useRef<nInp>(null);
   const [v, setV] = useState<"false" | "true">("false");
+  const [isPressed, setIsPressed] = useState(false);
   useEffect(() => {
     r.current && assignFormAttrs(r.current, r.current?.closest("form") as HTMLFormElement);
   }, []);
@@ -14,13 +15,6 @@ export default function RadioBlock(props: QuestionRadioProps): JSX.Element {
     if (!r.current) return;
     if (v === "true" && r.current.dataset.value && opts.get(props.group)) {
       const op = opts.get(props.group)?.find(o => o.value === r.current?.dataset.value);
-      if (op?.r)
-        console.log(
-          `${props.group}__${op.r}` === op.value ||
-            (/[^0-9]/g.test(op.r) &&
-              /^[A-Za-z0-9+/]+={0,2}$/g.test(op.r) &&
-              r.current.dataset.value === props.group + "__" + atob(op.r))
-        );
       if (
         op?.r &&
         (`${props.group}__${op.r}` === op.value ||
@@ -49,6 +43,12 @@ export default function RadioBlock(props: QuestionRadioProps): JSX.Element {
         data-value={props.value}
         onChange={ev => setV(ev.currentTarget.checked ? "true" : "false")}
         value={props.defaultValue || v}
+        onMouseDown={() => setIsPressed(true)}
+        onMouseUp={() => setIsPressed(false)}
+        style={{
+          transform: isPressed ? "translateY(0.3rem)" : "translateY(0.15rem)",
+          transition: "transform 0.2s ease",
+        }}
       />
       <label
         id={`${props.value}__lab`}
