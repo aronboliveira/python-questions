@@ -24,11 +24,12 @@ export default function RootLayout({
         <link rel='author' href='https://github.com/aronboliveira/' crossOrigin='anonymous' />
         <meta name='author' content='Aron Barbosa de Oliveira' />
         <meta name='publisher' content='Aron Barbosa de Oliveira' />
+        <meta property='og:type' content='website' />
         <meta property='og:site_name' content="Jane Doe's Blog" />
         <meta property='article:author' content='https://github.com/aronboliveira/' />
         <meta property='og:site_name' content='Questionário Python' />
         <meta property='og:description' content={metadata.description ?? ""} />
-        <meta property='og:title' content='website' />
+        <meta property='og:title' content={`Questionário Python`} />
         <meta property='og:locale' content='pt_BR' />
         <meta property='og:locale:alternate' content='en_US' />
         <meta property='og:url' content='https://python-test-abo.netlify.app/' />
