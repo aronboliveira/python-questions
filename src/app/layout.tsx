@@ -27,6 +27,9 @@ export default function RootLayout({
           id='bsLink'
         />
         <link rel='icon' id='favicon' href='/python.svg' />
+        <meta property='og:site_name' content='Questionário Python' />
+
+        <meta name='generator' content='Next.js 14.2.11' />
       </head>
       <body>
         <noscript>You need Javascript to run this application.</noscript>
