@@ -1,5 +1,10 @@
+import { Metadata } from "next";
 import "./styles/globals.scss";
 import Script from "next/script";
+export const metadata: Metadata = {
+  title: "Python challenge",
+  description: "Form generated for answering question about the Python libraries knowledge",
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,6 +26,7 @@ export default function RootLayout({
           crossOrigin='anonymous'
           id='bsLink'
         />
+        <link rel='icon' id='favicon' href='/python.svg' />
       </head>
       <body>
         <noscript>You need Javascript to run this application.</noscript>

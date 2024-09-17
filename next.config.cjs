@@ -71,7 +71,7 @@ const nextConfig = {
         enabled: true,
       }),
       new MiniCssExtractPlugin({
-        filename: `organo_lab_styles.${packageJson.version}.[contenthash].min.css`,
+        filename: `styles.${packageJson.version}.[contenthash].min.css`,
       }),
       new CopyWebpackPlugin({
         patterns: [
@@ -87,5 +87,4 @@ const nextConfig = {
   },
   productionBrowserSourceMaps: true,
 };
-
 module.exports = nextConfig;

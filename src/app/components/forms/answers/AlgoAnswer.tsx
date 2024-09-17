@@ -6,7 +6,7 @@ export default function AlgoAnswer({ p, c, s }: AlgoProps): JSX.Element {
       <dfn>
         <b>{p}</b>
       </dfn>
-      <span>, podendo ser mais eficientemente substituído por implementações de </span>
+      <span>, podendo ser, provavelmente, melhor substituído por implementações de </span>
       <dfn>
         <b>{c}</b>.
       </dfn>
@@ -15,7 +15,7 @@ export default function AlgoAnswer({ p, c, s }: AlgoProps): JSX.Element {
       <dfn>
         <b>{s}</b>
       </dfn>
-      <span>, que percorrem a lista do início ao fim.</span>
+      .
     </>
   );
 }

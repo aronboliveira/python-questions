@@ -7,7 +7,7 @@ export interface FormProps {
 export interface InpProps {
   id: string;
   type: inpType;
-  lab?: string;
+  lab?: string | React.Element;
   required?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
@@ -43,6 +43,7 @@ export interface RadioProps extends Omit<InpProps, "type"> {
 export interface QuestionRadioProps extends RadioProps {
   r?: string;
   id?: string;
+  lab?: string | JSX.Element;
 }
 export interface OptProps {
   value: string;
@@ -65,4 +66,15 @@ export interface AlgoProps {
   p: string;
   c: string;
   s: string;
+}
+export interface FilesAnswerProps {
+  f: string;
+  x: string;
+  c: string;
+  j: string;
+  h: string;
+  a: string;
+}
+export interface DjangoProps {
+  f: string;
 }

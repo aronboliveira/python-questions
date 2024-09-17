@@ -1,13 +1,12 @@
 "use client";
 import { QuestionRadioProps } from "@/app/lib/declarations/interfaceComponents";
-import { labEquivalents, opts } from "@/app/vars";
+import { opts } from "@/app/vars";
 import { useState, useEffect, useRef } from "react";
 import { assignFormAttrs } from "../../scripts/forms";
 import { nInp } from "@/app/lib/declarations/types";
 export default function RadioBlock(props: QuestionRadioProps): JSX.Element {
   const r = useRef<nInp>(null);
   const [v, setV] = useState<"false" | "true">("false");
-  const tLab = props.lab || labEquivalents.get(props.id ?? "") || props.id;
   useEffect(() => {
     r.current && assignFormAttrs(r.current, r.current?.closest("form") as HTMLFormElement);
   }, []);
@@ -15,7 +14,21 @@ export default function RadioBlock(props: QuestionRadioProps): JSX.Element {
     if (!r.current) return;
     if (v === "true" && r.current.dataset.value && opts.get(props.group)) {
       const op = opts.get(props.group)?.find(o => o.value === r.current?.dataset.value);
-      if (op && `${props.group}__${op.r}` === op.value) r.current.classList.add("correct");
+      if (op?.r)
+        console.log(
+          `${props.group}__${op.r}` === op.value ||
+            (/[^0-9]/g.test(op.r) &&
+              /^[A-Za-z0-9+/]+={0,2}$/g.test(op.r) &&
+              r.current.dataset.value === props.group + "__" + atob(op.r))
+        );
+      if (
+        op?.r &&
+        (`${props.group}__${op.r}` === op.value ||
+          (/[^0-9]/g.test(op.r) &&
+            /^[A-Za-z0-9+/]+={0,2}$/g.test(op.r) &&
+            r.current.dataset.value === props.group + "__" + atob(op.r)))
+      )
+        r.current.classList.add("correct");
     } else if (r.current.classList.contains("correct")) r.current.classList.remove("correct");
   }, [v]);
   return (
