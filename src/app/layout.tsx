@@ -33,6 +33,10 @@ export default function RootLayout({
         <meta property='og:locale' content='pt_BR' />
         <meta property='og:locale:alternate' content='en_US' />
         <meta property='og:url' content='https://python-test-abo.netlify.app/' />
+        <meta property='og:image' content='https://python-test-abo.netlify.app/thumbnail.png' />
+        <meta property='og:image:alt' content='630' />
+        <meta property='og:image:height' content='630' />
+        <meta property='og:image:width' content='630' />
         <meta name='generator' content='Next.js 14.2.11' />
         <meta
           name='keywords'
