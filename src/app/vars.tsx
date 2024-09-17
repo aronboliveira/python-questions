@@ -5,6 +5,7 @@ import AlgoAnswer from "./components/forms/answers/AlgoAnswer";
 import { isValidElement } from "react";
 import FilesAnswer from "./components/forms/answers/FilesAnswer";
 import DjangoAnswer from "./components/forms/answers/DjangoAnswer";
+import SearchAnswer from "./components/forms/answers/SearchAnwser";
 export const rc: { [k: string]: { [k: string]: string[] } } = {};
 export const labEquivalents: Map<string, string> = new Map([["default", "none"]]);
 export const gs = [
@@ -57,7 +58,13 @@ export const gs = [
         </pre>
       </QuestionDesc>
     ),
-    labs: [<span>n</span>, <span>O(n^2)</span>, <span>O(n * m)</span>, <span>O(log n + log m)</span>],
+    labs: [
+      <span>n</span>,
+      <span>O(n^2)</span>,
+      <span>O(n * m)</span>,
+      <span>O(log n + log m)</span>,
+      <span>O(log n)</span>,
+    ],
     r: 1,
   },
   {
@@ -81,7 +88,8 @@ export const gs = [
       <FilesAnswer f='os.walk' x='openpyxl' c='pandas' j='JSON' h='HTTP' a='RESTful' />,
       <FilesAnswer f='os.listdir' x='xlrd' c='csv' j='YAML' h='FTP' a='SOAP' />,
       <FilesAnswer f='shutil.copy' x='csv' c='openpyxl' j='XML' h='WebSocket' a='GraphQL' />,
-      <FilesAnswer f='glob.glob' x='pandas' c='openpyxl' j='CSV' h='SMTP' a='REST' />,
+      <FilesAnswer f='os.walk' x='pandas' c='openpyxl' j='JSON' h='SMTP' a='RESTful' />,
+      <FilesAnswer f='subprocess.run' x='openpyxl' c='pandas' j='JSON' h='HTTP' a='SOAP' />,
     ],
     r: 0,
   },
@@ -117,14 +125,85 @@ export const gs = [
         }
       />
     ),
-    labs: [<DjangoAnswer f='1' />, <DjangoAnswer f='2' />, <DjangoAnswer f='3' />, <DjangoAnswer f='4' />],
+    labs: [
+      <DjangoAnswer f='1' />,
+      <DjangoAnswer f='2' />,
+      <DjangoAnswer f='3' />,
+      <DjangoAnswer f='4' />,
+      <DjangoAnswer f='5' />,
+    ],
     r: 1,
   },
   {
-    name: "caseExcel",
-    labs: ["Primeiro Excel", "Segundo Excel"],
-    r: 0,
-    d: <QuestionDesc idf='caseExcel' children={<></>} />,
+    name: "caseSearch",
+    d: (
+      <QuestionDesc
+        idf='caseSearch'
+        children={
+          <div>
+            <p className='addBlock'>
+              <span>
+                Para permitir que os usuários de um aplicativo possam obter dados sobre sua atividade, uma equipe de
+                desenvolvimento está desenvolvendo um algoritmo que implemente as corretas etapas de ETL utilizando
+                React.js, Django e SQL.
+              </span>
+              <br />
+              <span>
+                Neste sentido, a requisição é obtida a partir da submissão de um formulário construído em uma das
+                páginas do sistema.
+              </span>
+            </p>
+            <div className='mainBlock'>
+              Marque a opção que descreve, de forma resumida e correta, as etapas necessárias para preencher os
+              requisitos, desde a implementação da possibilidade de submissão até o retorno para o client.
+            </div>
+          </div>
+        }
+      />
+    ),
+    labs: [
+      <SearchAnswer
+        f='onsubmit'
+        a='Fetch API'
+        b='pandas'
+        c='Tempo total de sessão, Número de interações, Contagem de eventos, Duração média das interações, Taxa de cliques e Tempo entre ações consecutivas'
+        d='INNER JOIN, HAVING, SUM, COUNT e AVG'
+        j='CSV'
+      />,
+      <SearchAnswer
+        f='onInput'
+        a='Math API'
+        b='json'
+        c='Média de tempo por sessão, Total de visualizações de página, Bounce rate, Tempo de carregamento médio e Total de páginas únicas acessadas'
+        d='LEFT JOIN, ORDER BY, MAX, MIN e SUM'
+        j='HTML'
+      />,
+      <SearchAnswer
+        f='onSubmit'
+        a='Fetch API'
+        b='pandas'
+        c='Tempo médio de sessão, Número de acessos únicos, Desvio-padrão de interações, Duração média de ações, Correlação entre eventos e Tempo total de inatividade'
+        d='SELECT DISTINCT, AGGREGATE, WHERE, JOIN, SUM e STDDEV'
+        j='JSON'
+      />,
+      <SearchAnswer
+        f='onSubmit'
+        a='Fetch API'
+        b='pandas'
+        c='Tempo médio de sessão, Número de acessos únicos e Desvio-padrão de interações'
+        d='SELECT DISTINCT, AGGREGATE e WHERE'
+        j='JSON'
+      />,
+      <SearchAnswer
+        f='onChange'
+        a='Location API'
+        b='openpyxl'
+        c='Número de logins, Quantidade de transações, Total de erros de autenticação, Tempo médio de resposta do servidor e Média de tentativas de login por sessão'
+        d='UNION, LIMIT, COUNT, AVG e ORDER BY'
+        j='XML'
+      />,
+    ],
+    r: 3,
   },
 ];
 export const opts: Map<string, QuestionRadioProps[]> = new Map(

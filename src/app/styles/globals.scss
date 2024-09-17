@@ -73,6 +73,18 @@ ul {
   align-items: start;
   padding: 2rem;
   gap: 1rem;
+  width: 100%;
+}
+.form-label,
+pre,
+code {
+  overflow: auto;
+}
+pre {
+  max-width: 80vw;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(211, 205, 205) rgb(40, 40, 41);
 }
 .radioBlock {
   display: flex;

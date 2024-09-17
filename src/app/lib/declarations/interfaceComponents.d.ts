@@ -78,3 +78,11 @@ export interface FilesAnswerProps {
 export interface DjangoProps {
   f: string;
 }
+export interface SearchAnswerProps {
+  f: string;
+  a: string;
+  b: string;
+  c: string;
+  d: string;
+  j: string;
+}
