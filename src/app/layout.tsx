@@ -20,8 +20,9 @@ export default function RootLayout({
   return (
     <html lang='pt-BR' className={poppins.className}>
       <head>
-        <meta name='author' content='Aron Barbosa de Oliveira' />
+        <link rel='canonical' content='https://python-test-abo.netlify.app/' crossOrigin='anonymous' />
         <link rel='author' href='https://github.com/aronboliveira/' crossOrigin='anonymous' />
+        <meta name='author' content='Aron Barbosa de Oliveira' />
         <meta name='publisher' content='Aron Barbosa de Oliveira' />
         <meta property='og:site_name' content="Jane Doe's Blog" />
         <meta property='article:author' content='https://github.com/aronboliveira/' />
@@ -30,6 +31,7 @@ export default function RootLayout({
         <meta property='og:title' content='website' />
         <meta property='og:locale' content='pt_BR' />
         <meta property='og:locale:alternate' content='en_US' />
+        <meta property='og:url' content='https://python-test-abo.netlify.app/' />
         <meta name='generator' content='Next.js 14.2.11' />
         <meta
           name='keywords'
