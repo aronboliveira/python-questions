@@ -30,7 +30,7 @@ export default function RadioBlock(props: QuestionRadioProps): JSX.Element {
       )
         r.current.classList.add("correct");
     } else if (r.current.classList.contains("correct")) r.current.classList.remove("correct");
-  }, [v]);
+  }, [v, props.group]);
   return (
     <div className='radioBlock' id={`${props.group}__block`}>
       <input

@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { QuestionRadioProps } from "./lib/declarations/interfaceComponents";
 import QuestionDesc from "./components/forms/QuestionDesc";
 import AlgoAnswer from "./components/forms/answers/AlgoAnswer";
@@ -28,11 +27,11 @@ export const gs = [
       </QuestionDesc>
     ),
     labs: [
-      <AlgoAnswer p='Bubble Sort' c='Quick Sort' s='Linear Search' />,
-      <AlgoAnswer p='Insertion Sort' c='Selection Sort' s='Hashing' />,
-      <AlgoAnswer p='Selection Sort' c='Merge Sort' s='Binary Search' />,
-      <AlgoAnswer p='Merge Sort' c='Heap Sort' s='Backtracing' />,
-      <AlgoAnswer p='Quick Sort' c='Bubble Sort' s='BFS' />,
+      <AlgoAnswer p='Bubble Sort' c='Quick Sort' s='Linear Search' key='aa_0' />,
+      <AlgoAnswer p='Insertion Sort' c='Selection Sort' s='Hashing' key='aa_1' />,
+      <AlgoAnswer p='Selection Sort' c='Merge Sort' s='Binary Search' key='aa_2' />,
+      <AlgoAnswer p='Merge Sort' c='Heap Sort' s='Backtracing' key='aa_3' />,
+      <AlgoAnswer p='Quick Sort' c='Bubble Sort' s='BFS' key='aa_4' />,
     ],
     r: 2,
   },
@@ -59,11 +58,11 @@ export const gs = [
       </QuestionDesc>
     ),
     labs: [
-      <span>n</span>,
-      <span>O(n^2)</span>,
-      <span>O(n * m)</span>,
-      <span>O(log n + log m)</span>,
-      <span>O(log n)</span>,
+      <span key='la_0'>n</span>,
+      <span key='la_1'>O(n^2)</span>,
+      <span key='la_2'>O(n * m)</span>,
+      <span key='la_3'>O(log n + log m)</span>,
+      <span key='la_4'>O(log n)</span>,
     ],
     r: 1,
   },
@@ -85,81 +84,75 @@ export const gs = [
       </QuestionDesc>
     ),
     labs: [
-      <FilesAnswer f='os.walk' x='openpyxl' c='pandas' j='JSON' h='HTTP' a='RESTful' />,
-      <FilesAnswer f='os.listdir' x='xlrd' c='csv' j='YAML' h='FTP' a='SOAP' />,
-      <FilesAnswer f='shutil.copy' x='csv' c='openpyxl' j='XML' h='WebSocket' a='GraphQL' />,
-      <FilesAnswer f='os.walk' x='pandas' c='openpyxl' j='JSON' h='SMTP' a='RESTful' />,
-      <FilesAnswer f='subprocess.run' x='openpyxl' c='pandas' j='JSON' h='HTTP' a='SOAP' />,
+      <FilesAnswer f='os.walk' x='openpyxl' c='pandas' j='JSON' h='HTTP' a='RESTful' key='fa_0' />,
+      <FilesAnswer f='os.listdir' x='xlrd' c='csv' j='YAML' h='FTP' a='SOAP' key='fa_1' />,
+      <FilesAnswer f='shutil.copy' x='csv' c='openpyxl' j='XML' h='WebSocket' a='GraphQL' key='fa_2' />,
+      <FilesAnswer f='os.walk' x='pandas' c='openpyxl' j='JSON' h='SMTP' a='RESTful' key='fa_3' />,
+      <FilesAnswer f='subprocess.run' x='openpyxl' c='pandas' j='JSON' h='HTTP' a='SOAP' key='fa_4' />,
     ],
     r: 0,
   },
   {
     name: "caseReplace",
     d: (
-      <QuestionDesc
-        idf='caseReplace'
-        children={
-          <div>
-            <p className='addBlock'>
-              <span>
-                Uma equipe de desenvolvimento busca criar uma aplicação que necessita armazenar em seu banco de dados
-                informações sobre a localização geográfica do usuário.
-              </span>
-              <br />
-              <span>
-                Para isso, usa-se a interface de Geolocation do JavaScript no Frontend, solicitando ao usuário as
-                devidas permissões, e então envia-se ao banco de dados a cada intervalo determinado os dados geográficos
-                atualizados.
-              </span>
-              <br />
-              <span>
-                A equipe de gerenciamento do banco de dados, no entanto, notou que, em algum ponto na passagem entre o
-                client e o servidor no Endpoint designado, os dados estavam perdendo a formatação adequada.
-              </span>
-            </p>
-            <div className='mainBlock'>
-              Considerando que o script no endpoint foi criado em Django, qual das opções realiza a correta
-              sanitarização e modelagem dos dados?
-            </div>
+      <QuestionDesc idf='caseReplace'>
+        <div>
+          <p className='addBlock'>
+            <span>
+              Uma equipe de desenvolvimento busca criar uma aplicação que necessita armazenar em seu banco de dados
+              informações sobre a localização geográfica do usuário.
+            </span>
+            <br />
+            <span>
+              Para isso, usa-se a interface de Geolocation do JavaScript no Frontend, solicitando ao usuário as devidas
+              permissões, e então envia-se ao banco de dados a cada intervalo determinado os dados geográficos
+              atualizados.
+            </span>
+            <br />
+            <span>
+              A equipe de gerenciamento do banco de dados, no entanto, notou que, em algum ponto na passagem entre o
+              client e o servidor no Endpoint designado, os dados estavam perdendo a formatação adequada.
+            </span>
+          </p>
+          <div className='mainBlock'>
+            Considerando que o script no endpoint foi criado em Django, qual das opções realiza a correta sanitarização
+            e modelagem dos dados?
           </div>
-        }
-      />
+        </div>
+      </QuestionDesc>
     ),
     labs: [
-      <DjangoAnswer f='1' />,
-      <DjangoAnswer f='2' />,
-      <DjangoAnswer f='3' />,
-      <DjangoAnswer f='4' />,
-      <DjangoAnswer f='5' />,
+      <DjangoAnswer f='1' key='da_0' />,
+      <DjangoAnswer f='2' key='da_1' />,
+      <DjangoAnswer f='3' key='da_2' />,
+      <DjangoAnswer f='4' key='da_3' />,
+      <DjangoAnswer f='5' key='da_4' />,
     ],
     r: 1,
   },
   {
     name: "caseSearch",
     d: (
-      <QuestionDesc
-        idf='caseSearch'
-        children={
-          <div>
-            <p className='addBlock'>
-              <span>
-                Para permitir que os usuários de um aplicativo possam obter dados sobre sua atividade, uma equipe de
-                desenvolvimento está desenvolvendo um algoritmo que implemente as corretas etapas de ETL utilizando
-                React.js, Django e SQL.
-              </span>
-              <br />
-              <span>
-                Neste sentido, a requisição é obtida a partir da submissão de um formulário construído em uma das
-                páginas do sistema.
-              </span>
-            </p>
-            <div className='mainBlock'>
-              Marque a opção que descreve, de forma resumida e correta, as etapas necessárias para preencher os
-              requisitos, desde a implementação da possibilidade de submissão até o retorno para o client.
-            </div>
+      <QuestionDesc idf='caseSearch'>
+        <div>
+          <p className='addBlock'>
+            <span>
+              Para permitir que os usuários de um aplicativo possam obter dados sobre sua atividade, uma equipe de
+              desenvolvimento está desenvolvendo um algoritmo que implemente as corretas etapas de ETL utilizando
+              React.js, Django e SQL.
+            </span>
+            <br />
+            <span>
+              Neste sentido, a requisição é obtida a partir da submissão de um formulário construído em uma das páginas
+              do sistema.
+            </span>
+          </p>
+          <div className='mainBlock'>
+            Marque a opção que descreve, de forma resumida e correta, as etapas necessárias para preencher os
+            requisitos, desde a implementação da possibilidade de submissão até o retorno para o client.
           </div>
-        }
-      />
+        </div>
+      </QuestionDesc>
     ),
     labs: [
       <SearchAnswer
@@ -169,6 +162,7 @@ export const gs = [
         c='Tempo total de sessão, Número de interações, Contagem de eventos, Duração média das interações, Taxa de cliques e Tempo entre ações consecutivas'
         d='INNER JOIN, HAVING, SUM, COUNT e AVG'
         j='CSV'
+        key='sa_0'
       />,
       <SearchAnswer
         f='onInput'
@@ -177,6 +171,7 @@ export const gs = [
         c='Média de tempo por sessão, Total de visualizações de página, Bounce rate, Tempo de carregamento médio e Total de páginas únicas acessadas'
         d='LEFT JOIN, ORDER BY, MAX, MIN e SUM'
         j='HTML'
+        key='sa_1'
       />,
       <SearchAnswer
         f='onSubmit'
@@ -185,6 +180,7 @@ export const gs = [
         c='Tempo médio de sessão, Número de acessos únicos, Desvio-padrão de interações, Duração média de ações, Correlação entre eventos e Tempo total de inatividade'
         d='SELECT DISTINCT, AGGREGATE, WHERE, JOIN, SUM e STDDEV'
         j='JSON'
+        key='sa_2'
       />,
       <SearchAnswer
         f='onSubmit'
@@ -193,6 +189,7 @@ export const gs = [
         c='Tempo médio de sessão, Número de acessos únicos e Desvio-padrão de interações'
         d='SELECT DISTINCT, AGGREGATE e WHERE'
         j='JSON'
+        key='sa_3'
       />,
       <SearchAnswer
         f='onChange'
@@ -201,6 +198,7 @@ export const gs = [
         c='Número de logins, Quantidade de transações, Total de erros de autenticação, Tempo médio de resposta do servidor e Média de tentativas de login por sessão'
         d='UNION, LIMIT, COUNT, AVG e ORDER BY'
         j='XML'
+        key='sa_4'
       />,
     ],
     r: 3,

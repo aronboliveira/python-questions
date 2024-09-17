@@ -1,9 +1,16 @@
 import { Metadata } from "next";
 import "./styles/globals.scss";
 import Script from "next/script";
+import { Poppins } from "@next/font/google";
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 export const metadata: Metadata = {
-  title: "Python challenge",
-  description: "Form generated for answering question about the Python libraries knowledge",
+  title: "Questionário Python",
+  description: "Este é um questionário relacionado a Python e seus frameworks backend, desenvolvido em Next.js",
 };
 export default function RootLayout({
   children,
@@ -11,14 +18,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>): JSX.Element {
   return (
-    <html lang='pt-BR'>
+    <html lang='pt-BR' className={poppins.className}>
       <head>
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'
-          rel='stylesheet'
+        <meta property='og:site_name' content='Questionário Python' />
+        <meta property='og:description' content={metadata.description ?? ""} />
+        <meta property='og:title' content='website' />
+        <meta property='og:locale' content='pt_BR' />
+        <meta property='og:locale:alternate' content='en_US' />
+        <meta name='generator' content='Next.js 14.2.11' />
+        <meta
+          name='keywords'
+          content='Python, Python test, Python development, programming, coding, software development, backend development, Django, Flask, Python frameworks, data analysis, algorithms, coding interview, technical test, programming assessment, Python skills, web development, software engineering, coding challenges, technical interview, developer test, Python interview questions, 
+Python, teste Python, desenvolvimento Python, programação, codificação, desenvolvimento de software, desenvolvimento backend, Django, Flask, frameworks Python, análise de dados, algoritmos, entrevista de programação, teste técnico, avaliação de programação, habilidades Python, desenvolvimento web, engenharia de software, desafios de programação, entrevista técnica, teste de desenvolvedor, perguntas de entrevista Python,
+Python, prueba de Python, desarrollo de Python, programación, codificación, desarrollo de software, desarrollo backend, Django, Flask, frameworks de Python, análisis de datos, algoritmos, entrevista de programación, prueba técnica, evaluación de programación, habilidades de Python, desarrollo web, ingeniería de software, desafíos de programación, entrevista técnica, prueba para desarrollador, preguntas de entrevista de Python'
         />
+        <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
         <link
           href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
           rel='stylesheet'
@@ -27,9 +41,6 @@ export default function RootLayout({
           id='bsLink'
         />
         <link rel='icon' id='favicon' href='/python.svg' />
-        <meta property='og:site_name' content='Questionário Python' />
-
-        <meta name='generator' content='Next.js 14.2.11' />
       </head>
       <body>
         <noscript>You need Javascript to run this application.</noscript>
