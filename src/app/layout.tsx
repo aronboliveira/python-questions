@@ -37,6 +37,7 @@ export default function RootLayout({
         <meta property='og:image:alt' content='630' />
         <meta property='og:image:height' content='630' />
         <meta property='og:image:width' content='630' />
+        <meta property='og:updated_time' content={new Date().toISOString()} />
         <meta name='generator' content='Next.js 14.2.11' />
         <meta
           name='keywords'
