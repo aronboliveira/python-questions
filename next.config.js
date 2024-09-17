@@ -3,7 +3,7 @@ const nextConfig = {
   output: "export",
   reactStrictMode: true,
   trailingSlash: true,
-  distDir: "dist",
+  distDir: "out",
   env: {
     GIT_HASH: process.env.GIT_HASH,
   },
