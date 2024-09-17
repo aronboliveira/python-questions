@@ -239,4 +239,3 @@ export const opts: Map<string, QuestionRadioProps[]> = new Map(
     }),
   ])
 );
-console.log(opts);
