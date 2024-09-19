@@ -43,7 +43,7 @@ export const gs = [
         <p className='addBlock'>
           <span>
             Qual das seguintes opções representa, em Python, a complexidade correta para um loop aninhado iterando sobre
-            dois arrays,
+            duas listas,
           </span>
           <code> arr1</code> e <code>arr2</code>, de tamanhos <code>n</code> e <code>m</code> respectivamente?
         </p>

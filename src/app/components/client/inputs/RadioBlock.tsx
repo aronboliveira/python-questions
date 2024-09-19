@@ -15,14 +15,22 @@ export default function RadioBlock(props: QuestionRadioProps): JSX.Element {
     if (!r.current) return;
     if (v === "true" && r.current.dataset.value && opts.get(props.group)) {
       const op = opts.get(props.group)?.find(o => o.value === r.current?.dataset.value);
-      if (
-        op?.r &&
-        (`${props.group}__${op.r}` === op.value ||
+      if (op?.r) {
+        const opDc = atob(op.r).replace(/\s/g, "");
+        const dv = r.current.dataset.value;
+        const dvSl = dv.slice(dv.indexOf("__") + 2);
+        const dvDc = atob(dvSl).replace(/\s/g, "");
+        if (
+          `${props.group}__${op.r}` === op.value ||
           (/[^0-9]/g.test(op.r) &&
-            /^[A-Za-z0-9+/]+={0,2}$/g.test(op.r) &&
-            r.current.dataset.value === props.group + "__" + atob(op.r)))
-      )
-        r.current.classList.add("correct");
+            /^(?:[A-Za-z0-9+/]{4})*?(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(op.r) &&
+            (dv === props.group.replace(/\s/g, "") + "__" + opDc ||
+              (/[^0-9]/g.test(dvSl) &&
+                /^(?:[A-Za-z0-9+/]{4})*?(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(dvSl) &&
+                dvDc === opDc)))
+        )
+          r.current.classList.add("correct");
+      }
     } else if (r.current.classList.contains("correct")) r.current.classList.remove("correct");
   }, [v, props.group]);
   return (
