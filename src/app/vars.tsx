@@ -65,7 +65,7 @@ export const gs = [
       <span key='la_3'>O(log n + log m)</span>,
       <span key='la_4'>O(log n)</span>,
     ],
-    r: 1,
+    r: 2,
   },
   {
     name: "caseCsv",
